@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
-const routesForUser = require('./routes/user-routes')
-const routesForBook = require('./routes/book-routes')
+const userRoutes = require('./routes/userRoutes')
+const bookRoutes = require('./routes/bookRoutes')
 
 mongoose.connect('mongodb+srv://SamuelDuflos50:Cherbourg50+@cluster0.28mbnyk.mongodb.net/?retryWrites=true&w=majority',
     {
@@ -24,31 +25,8 @@ app.use((req, res, next) => {
     next();
 })
 
-/* app.get('/api/books', (req, res, next) => {
-    res.json({ message: "Votre requête a bien été reçue !"})
-    next();
-}) */
-
-/* app.post('/api/books', (req, res, next) => {
-    delete req.body._id;
-    const thing = new bookThing({
-        ...req.body
-    })
-    thing.save()
-        .then(() => res.status(201).json({ message: 'Livre enregistré !'}))
-        .catch(error => res.status(400).json({ error }))
-})
-
-app.use('/api/books', (req, res, next) => {
-    bookThing.find()
-        .then(bookThings => res.status(200).json(bookThings))
-        .catch(error => res.status(400).json({ error }))
-}) */
-
-
-
-app.use('/api/books', routesForBook);
-
-app.use('/api/auth', routesForUser);
+app.use('/api/books', bookRoutes);
+app.use('/api/auth', userRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')))
 
 module.exports = app;
