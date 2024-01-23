@@ -46,9 +46,8 @@ exports.rateBook = (req, res, next) => {
     console.log(userId)
     console.log(rating)
     console.log(req.params.id)
-    console.log(id)
 
-    if (id === undefined) {
+    if (req.params.id === undefined) {
         console.log("Ce livre n'existe pas!")
         return res.status(400).json({ message: "Ce livre n'existe pas"})
     }
@@ -56,10 +55,12 @@ exports.rateBook = (req, res, next) => {
     if (rating < 0 || rating > 5) {
         return res.status(400).json({ error: 'La note doit être comprise entre 0 et 5' })
     }
-
-    Book.findByID(req.params.id)
+    console.log(Book)
+    const id = req.params.id;
+    Book.findOne({ _id: id})
         .then(book => {
-            console.log(id)
+            console.log("toto")
+            console.log(book)
 
             const userRating = book.ratings.find(rating => rating.userId === userId)
 
@@ -69,9 +70,9 @@ exports.rateBook = (req, res, next) => {
                 return res.status(400).json({ message: 'Vous avez déjà noté ce livre' })
             }
 
-            book.ratings.push({ userId, grade: rating, _id: id })
+            book.ratings.push({ id, userId, grade: rating})
             const additionRatings = book.ratings.reduce((acc, rating) => acc + rating.grade, 0)
-            const averageRating = additionRatings / book.ratings.length
+            const averageRating = Math.round(additionRatings / book.ratings.length)
             book.averageRating = averageRating;
             console.log(book.ratings)
 
