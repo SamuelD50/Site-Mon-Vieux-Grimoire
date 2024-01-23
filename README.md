@@ -9,11 +9,11 @@ Ce projet a pour vocation de prendre en main la partie back-end du site "Mon vie
 
 # Badge
 
-![Mon Vieux Grimoire Notation de livres](https://img.shields.io/badge/Mon-Vieux-Grimoire_Notation-de-livres-FFCCOO?style=for-the-badge&logo=Mon-Vieux-Grimoire)
+![Static Badge](https://img.shields.io/badge/Mon_Vieux_Grimoire-Notation_de_livres-gold?style=plastic&link=https%3A%2F%2Fgithub.com%2FSamuelD50%2FSite-Mon-Vieux-Grimoire)
 
 # Visuel
 
-![Capture-site-Mon-Vieux-Grimoire](https://github.com/SamuelD50/Site-Mon-Vieux-Grimoire/Capture-d'écran-Site-Mon-Vieux-Grimoire.png)
+![Capture-site-Mon-Vieux-Grimoire](https://github.com/SamuelD50/Site-Mon-Vieux-Grimoire/blob/main/Capture-d'%C3%A9cran-Site-Mon-Vieux-Grimoire.png)
 
 # Prérequis
 
