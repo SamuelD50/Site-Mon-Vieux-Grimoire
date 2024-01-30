@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router();
 
+/* This file defines routes for book management */
+
 const auth = require('../middleware/auth')
 const multer = require('../middleware/multer-config')
 const sharp = require('../middleware/sharp-config')

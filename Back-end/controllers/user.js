@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 
+/* This file implements various features related to user management */
 
+/* POST '/api/auth/signup' */
 exports.signup = (req, res, next) => {
     
     bcrypt.hash(req.body.password, 10)
@@ -18,6 +20,7 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({ error }))
 };
 
+/* POST '/api/auth/login' */
 exports.login = (req, res, next) => {
     User.findOne({email: req.body.email})
         .then(user => {

@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
+/* In this file, we configure our Express application with middlewares to handle requests, manage user and book routes, serve static files, set up CORS and finnaly, connect our application to the MongoDB database */
+
 const userRoutes = require('./routes/userRoutes')
 const bookRoutes = require('./routes/bookRoutes')
 
@@ -15,7 +17,6 @@ mongoose.connect('mongodb+srv://SamuelDuflos50:Cherbourg50+@cluster0.28mbnyk.mon
 
 const app = express();
 
-/* Accèder au corps de la requête */
 app.use(express.json());
 
 app.use((req, res, next) => {

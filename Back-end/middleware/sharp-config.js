@@ -1,6 +1,8 @@
 const sharp = require('sharp');
 const fs = require('fs');
 
+/* This middlewares uses the Sharp library to process picture downloads */
+
 module.exports = (req, res, next) => {
   if (req.file) {
     const newWebpFilename = `${req.file.filename.split('.')[0]}.webp`;

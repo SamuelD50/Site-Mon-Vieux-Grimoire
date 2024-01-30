@@ -1,6 +1,8 @@
 const http = require('http');
 const app = require('./app');
 
+/* In this file named server.js, we have the Node server. We use it to listen and respond to request from our Express application */
+
 const normalizePort = val => {
     const port = parseInt(val, 10);
 
