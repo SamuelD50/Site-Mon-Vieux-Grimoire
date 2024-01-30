@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+require('dotenv').config();
 
 /* In this file, we configure our Express application with middlewares to handle requests, manage user and book routes, serve static files, set up CORS and finnaly, connect our application to the MongoDB database */
 
 const userRoutes = require('./routes/userRoutes')
 const bookRoutes = require('./routes/bookRoutes')
 
-mongoose.connect('mongodb+srv://SamuelDuflos50:Cherbourg50+@cluster0.28mbnyk.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(process.env.DATABASE_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
