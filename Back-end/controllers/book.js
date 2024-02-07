@@ -83,7 +83,10 @@ exports.rateBook = (req, res, next) => {
 
 /* PUT '/api/books/:id' */
 exports.updateBook = (req, res, next) => {
-    const newWebpFilename = `${req.file.filename.split('.')[0]}.webp`;
+    const newWebpFilename = req.file ? 
+        `${req.file.filename.split('.')[0]}.webp`
+        : req.body.imageUrl;
+        
     const bookObject = req.file ? {
         ...JSON.parse(req.body.book),
         imageUrl: `${req.protocol}://${req.get('host')}/images/${newWebpFilename}`
